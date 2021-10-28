@@ -8,15 +8,25 @@ const ingredients = [
   "Зелень",
   "Приправы"
 ];
-const ListRef = document.querySelector('#ingredients');
 
 
-const list = ingredients.reduce((str, ingredient) => str + `<li>${ingredient}</li>`,'');
+// const list = ingredients.reduce((str, ingredient) => str + `<li>${ingredient}</li>`, '');
 // ListRef.innerHTML = list
-// console.log(ListRef);
+const ListRef = document.querySelector('#ingredients');
+const list = ingredients.map(el => {
+  const item = document.createElement("li");
+  item.textContent = el;
+  return item;
+});
+ListRef.prepend(...list);
+
+
+
+
 
 // 2 таск необходимо через распыление, а innerHTML используйте с осторожностью
-ListRef.insertAdjacentHTML('beforebegin', list);
+// ListRef.insertAdjacentHTML('beforebegin',list);
+
  
 
 
